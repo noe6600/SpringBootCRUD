@@ -1,0 +1,39 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<header th:replace="template/head::head"></header>
+<div th:replace="template/head::navbar"></div>
+
+<div class="container">
+	<h2>Create/Edit product</h2>
+	<hr>
+
+	<div class="row">
+		<div class="col-md-12">
+
+			<form th:action="@{/save}" th:object="${product}" method="post">
+				<input type="hidden" th:field="*{id}" />
+				<div class="form-group">
+					<label for="exampleInputEmail1">Product name</label> <input
+						type="text" class="form-control" th:field="*{name}"
+						placeholder="Product name">
+				</div>
+				<div class="form-group">
+					<label for="exampleInputPassword1">Product code</label> <input
+						type="text" class="form-control" th:field="*{code}"
+						placeholder="Product code">
+				</div>
+				<div class="form-group">
+					<label for="exampleInputPassword1">Upc</label> <input type="text"
+						class="form-control" th:field="*{upc}" placeholder="Product UPC">
+				</div>
+				<button type="submit" class="btn btn-primary">Submit</button>
+
+			</form>
+
+		</div>
+	</div>
+
+</div>
+
+<div th:replace="template/footer::scripts"></div>
+</html>

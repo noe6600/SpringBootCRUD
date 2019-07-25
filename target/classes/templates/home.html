@@ -1,0 +1,41 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<header th:replace="template/head::head"></header>
+<div th:replace="template/head::navbar"></div>
+
+<div class="container">
+	<h2>List of current products</h2>
+	<hr>
+
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">ID</th>
+						<th scope="col">Code</th>
+						<th scope="col">Name</th>
+						<th scope="col">Upc</th>
+						<th scope="col">Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="product: ${products}">
+						<th scope="row" th:text="${product.id}"></th>
+						<td th:text="${product.code}" />
+						<td><a th:href="@{edit/} + ${product.id}"
+							th:text="${product.name}"></a></td>
+						<td th:text="${product.upc}" />
+						<td><a class="btn btn-info"
+							th:href="@{edit/} + ${product.id}"><i class="fa fa-pencil"></i></a>
+							<a class="btn btn-danger" th:href="@{delete/} + ${product.id}"><i
+								class="fa fa-minus"></i></a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div th:replace="template/footer::scripts"></div>
+</html>

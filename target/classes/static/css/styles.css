@@ -1,0 +1,14 @@
+body{
+}
+
+h1{
+	font-size: 20px;
+}
+
+.header{
+	color: #333333;
+	font-weight: 200;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	border-bottom: 2px solid #725e97;
+}
